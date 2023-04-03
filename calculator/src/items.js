@@ -8,7 +8,7 @@ const items = [
   { id: 5, name: "Mango" },
 ];
 
-function ItemList({ items }) {
+export default function ItemList({ items }) {
   const [selectedItems, setSelectedItems] = useState([]);
 
   function handleCheckboxClick(item) {
@@ -59,4 +59,3 @@ function ItemList({ items }) {
     </div>
   );
 }
-  
