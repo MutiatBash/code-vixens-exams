@@ -9,8 +9,8 @@ function App() {
     { id: 3, name: "Cup" },
     { id: 4, name: "Apple" },
     { id: 5, name: "Mango" },
-    { id: 4, name: "Strawberry" },
-    { id: 5, name: "Banana" },
+    { id: 6, name: "Strawberry" },
+    { id: 7, name: "Banana" },
   ];
   return (
     <div className="App">
