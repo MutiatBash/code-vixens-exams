@@ -6,6 +6,8 @@ const items = [
   { id: 3, name: "Cup" },
   { id: 4, name: "Apple" },
   { id: 5, name: "Mango" },
+  { id: 6, name: "Strawberry" },
+  { id: 7, name: "Banana" },
 ];
 
 export default function ItemList({ items }) {
