@@ -7,8 +7,11 @@ import StatusDiv from "./styleddiv";
 function App() {
   return (
     <div className="App">
-      {/* <StatusDiv/> */}
       <Myprop name="Mutiat" age={22} email="mutiatbashua@gmail.com" />
+      <StatusDiv status="success" />
+      <StatusDiv />
+      <StatusDiv status="warning" />
+      <StatusDiv status="error" />
     </div>
   );
 }
