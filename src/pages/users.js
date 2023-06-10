@@ -18,10 +18,10 @@ import {
 } from "../components/styles";
 
 // USERS PAGE
-const WeatherContext = createContext();
+const UsersContext = createContext();
 export function UsersPage() {
   const [searchUsers, setSearchUsers] = useState("");
-  //   const [weatherData, setSearchUsers] = useState("");
+  //   const [UsersData, setSearchUsers] = useState("");
 
   const { data, loading, error } = useAxios(
     "https://jsonplaceholder.typicode.com/users"
@@ -31,14 +31,14 @@ export function UsersPage() {
     event.preventDefault();
     if (data) {
       setSearchUsers(searchUsers);
-      console.log("searching");
+      //   console.log("searching");
     } else if (error) {
       console.log("cannot get data");
     }
   }
 
   return (
-    <WeatherContext.Provider
+    <UsersContext.Provider
       value={{
         searchUsers,
         setSearchUsers,
@@ -51,18 +51,17 @@ export function UsersPage() {
         <SearchBar />
         <DisplayUsers />
       </Container>
-    </WeatherContext.Provider>
+    </UsersContext.Provider>
   );
 }
 
 // SEARCH BAR
 function SearchBar() {
-  const { searchUsers, setSearchUsers, handleData } =
-    useContext(WeatherContext);
+  const { searchUsers, setSearchUsers, handleData } = useContext(UsersContext);
 
   useEffect(() => {
     setSearchUsers(searchUsers);
-    console.log("searching");
+    console.log("managing fetching effects");
   }, [searchUsers, setSearchUsers]);
 
   const handleInput = (event) => {
@@ -87,26 +86,38 @@ function SearchBar() {
 
 //USER DISPLAY CARD
 function DisplayUsers() {
-  const { searchUsers, setSearchUsers } = useContext(WeatherContext);
+  const { searchUsers, setSearchUsers } = useContext(UsersContext);
   const { data, loading, error } = useAxios(
     "https://jsonplaceholder.typicode.com/users"
   );
-  if (loading) {
-    return <p> Loading Users....</p>;
-    //   } else if (searchUsers) {
-    //     setSearchUsers(data);
-    //     console.log("searching");
-  } else if (error) {
-    return <P>Error loading data : {error.message}</P>;
-  }
+  //   if (loading) {
+  //     return <p> Loading Users....</p>;
+  //     //   } else if (searchUsers) {
+  //     //     setSearchUsers(data);
+  //     //     console.log("searching");
+  //   } else if (error) {
+  //     return <p>Error loading data : {error.message}</p>;
+  //   }
   return (
     <div>
       <Head> Users</Head>
-      <Card>
-        {data.map((user) => (
-          <P key={user.id}> {user.name}</P>
-        ))}
-      </Card>
+      {loading ? (
+        <p> Loading Users....</p>
+      ) : error ? (
+        <p>Error loading users : {error}</p>
+      ) : (
+        <Card>
+          {data
+            .filter((user) => {
+              return searchUsers.toLowerCase() === ""
+                ? user
+                : user.name.toLowerCase().includes(searchUsers);
+            })
+            .map((user) => (
+              <P key={user.id}> {user.name}</P>
+            ))}
+        </Card>
+      )}
     </div>
   );
 }

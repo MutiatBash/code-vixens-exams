@@ -33,7 +33,7 @@ export const Form = styled.form`
   justify-content: center;
 `;
 export const Input = styled.input`
-  border-radius: 50px;
+  border-radius: 20px;
   border: 1px solid grey;
   //   background-color: lightcream;
   padding: 1rem 7rem 1rem 1rem;

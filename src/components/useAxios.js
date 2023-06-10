@@ -14,18 +14,18 @@ function useAxios(url) {
           setData(axiosResponse.data);
           setLoading(false);
         }, 2000);
-
       } catch (error) {
+        setLoading(false);
         setError(error.message);
         console.error("Axios Error", error.message);
       }
+      //   } finally {
+      //     setLoading(false);
+      //   }
     };
     fetchData();
   }, [url]);
   console.log(data, loading, error);
-  return (
-    { data, loading, error }
-    
-  );
+  return { data, loading, error };
 }
 export default useAxios;
