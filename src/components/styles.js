@@ -81,11 +81,16 @@ export const Error = styled.p`
 export const Ul = styled.ul`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0;
 `;
 export const Li = styled.li`
   list-style: none;
-  color: blue;
+  text-decoration: none;
+  color: rgb(66, 65, 68);
+  text-align: center;
 `;
 export const Nav = styled.nav`
-  background-color: pink;
+  background-color: rgb(249, 222, 225);
+  padding: 0.8rem 2rem;
 `;

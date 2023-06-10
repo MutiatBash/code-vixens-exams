@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useAxios() {
-  let url = "https://jsonplaceholder.typicode.com/users";
+function useAxios(url) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +15,6 @@ function useAxios() {
           setLoading(false);
         }, 2000);
 
-        // console.log("Axios data", axiosResponse.data);
       } catch (error) {
         setError(error.message);
         console.error("Axios Error", error.message);

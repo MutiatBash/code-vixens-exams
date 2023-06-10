@@ -47,6 +47,7 @@ export function UsersPage() {
     >
       <Container>
         <Navbar />
+        <h1> View Our Users</h1>
         <SearchBar />
         <DisplayUsers />
       </Container>
@@ -91,7 +92,7 @@ function DisplayUsers() {
     "https://jsonplaceholder.typicode.com/users"
   );
   if (loading) {
-    return <p> Loading data....</p>;
+    return <p> Loading Users....</p>;
     //   } else if (searchUsers) {
     //     setSearchUsers(data);
     //     console.log("searching");
