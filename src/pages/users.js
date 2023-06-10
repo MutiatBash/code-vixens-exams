@@ -5,11 +5,17 @@ import {
   useContext,
   useCallback,
 } from "react";
-import axios from "axios";
-import { useAxios } from "./components/useAxios";
-import styled from "styled-components";
-import {Input, Button, Form, Card, P, Container} from "./components/styles"
-
+import Navbar from "../components/navbar";
+import useAxios from "../components/useAxios";
+import {
+  Input,
+  Button,
+  Form,
+  Card,
+  P,
+  Container,
+  Head,
+} from "../components/styles";
 
 // USERS PAGE
 const WeatherContext = createContext();
@@ -23,8 +29,8 @@ export function UsersPage() {
 
   function handleData(event) {
     event.preventDefault();
-    if (searchUsers) {
-      setSearchUsers(data);
+    if (data) {
+      setSearchUsers(searchUsers);
       console.log("searching");
     } else if (error) {
       console.log("cannot get data");
@@ -35,13 +41,12 @@ export function UsersPage() {
     <WeatherContext.Provider
       value={{
         searchUsers,
-
-        weatherData,
         setSearchUsers,
         handleData,
       }}
     >
       <Container>
+        <Navbar />
         <SearchBar />
         <DisplayUsers />
       </Container>
@@ -85,16 +90,14 @@ function DisplayUsers() {
   const { data, loading, error } = useAxios(
     "https://jsonplaceholder.typicode.com/users"
   );
-  //   if (loading) {
-  //     return <p> Loading data....</p>;
-  //   } else
-  if (searchUsers) {
-    setSearchUsers(data);
-    console.log("searching");
+  if (loading) {
+    return <p> Loading data....</p>;
+    //   } else if (searchUsers) {
+    //     setSearchUsers(data);
+    //     console.log("searching");
   } else if (error) {
-    return <P>Error loading data</P>;
+    return <P>Error loading data : {error.message}</P>;
   }
-
   return (
     <div>
       <Head> Users</Head>

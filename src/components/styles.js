@@ -53,7 +53,7 @@ export const Head = styled.h1`
   font-size: 1.8rem;
   padding-top: 1rem;
   text-align: center;
-  color: white;
+  //   color: white;
 `;
 export const P = styled.p`
   font-size: 1.2rem;
@@ -77,4 +77,15 @@ export const Error = styled.p`
   margin: 0;
   font-weight: 600;
   text-align: left;
+`;
+export const Ul = styled.ul`
+  display: flex;
+  justify-content: space-between;
+`;
+export const Li = styled.li`
+  list-style: none;
+  color: blue;
+`;
+export const Nav = styled.nav`
+  background-color: pink;
 `;
