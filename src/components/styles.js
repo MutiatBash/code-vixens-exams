@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.body`
-  position: relative;
+  //   position: relative;
   min-height: 100vh;
 `;
 // export const Background = styled.main`
@@ -70,6 +70,26 @@ export const Card = styled.div`
   padding: 1rem 1.5rem;
   background-color: rgba(5, 14, 25, 0.75);
 `;
+export const Userlist = styled.div`
+  //   max-width: 500px;
+  border: 1px solid black;
+  border-radius: 6px;
+  //   margin: 2rem auto;
+  padding: 0.5rem 1.5rem;
+  //   background-color: rgba(5, 14, 30, 0.75);
+`;
+export const Usercard = styled.div`
+  max-width: 500px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  //   flex-wrap: wrap;
+  border-radius: 6px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  //   background-color: rgba(5, 14, 30, 0.75);
+`;
 export const Error = styled.p`
   color: red;
   font-size: 0.7rem;
@@ -87,10 +107,22 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   list-style: none;
   text-decoration: none;
+  cursor: pointer;
+  padding-right: 5rem;
   color: rgb(66, 65, 68);
   text-align: center;
 `;
 export const Nav = styled.nav`
   background-color: rgb(249, 222, 225);
   padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+`;
+export const DarkTheme = styled.div`
+  background-color: black;
+  color: white;
+`;
+export const LightTheme = styled.div`
+  background-color: white;
+  color: black;
 `;

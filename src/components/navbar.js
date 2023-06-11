@@ -1,6 +1,10 @@
 import { Nav, Ul, Li } from "./styles";
 import { NavLink, Routes, Route } from "react-router-dom";
+import Toggletheme from "./togglebutton";
+import { ThemeContext } from "./themecontext";
+import { useContext } from "react";
 function Navbar() {
+  const { theme, toggleTheme, themeStyles } = useContext(ThemeContext);
   return (
     <Nav>
       <Ul>
@@ -14,6 +18,7 @@ function Navbar() {
           <Li>Users</Li>
         </NavLink>
       </Ul>
+      <Toggletheme />
     </Nav>
   );
 }

@@ -1,17 +1,13 @@
-import {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  useCallback,
-} from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import Navbar from "../components/navbar";
 import useAxios from "../components/useAxios";
 import {
   Input,
-  Button,
   Form,
   Card,
+  List
+  Userlist,
+  Usercard,
   P,
   Container,
   Head,
@@ -21,7 +17,6 @@ import {
 const UsersContext = createContext();
 export function UsersPage() {
   const [searchUsers, setSearchUsers] = useState("");
-  //   const [UsersData, setSearchUsers] = useState("");
 
   const { data, loading, error } = useAxios(
     "https://jsonplaceholder.typicode.com/users"
@@ -70,17 +65,15 @@ function SearchBar() {
   };
 
   return (
-    <Form onSubmit={handleData}>
-      <div>
-        <Input
-          type="text"
-          name="searchUsers"
-          placeholder="Search for a User"
-          value={searchUsers}
-          onChange={handleInput}
-        />
-      </div>
-    </Form>
+    <div>
+      <Input
+        type="text"
+        name="searchUsers"
+        placeholder="Search for a User"
+        value={searchUsers}
+        onChange={handleInput}
+      />
+    </div>
   );
 }
 
@@ -100,13 +93,13 @@ function DisplayUsers() {
   //   }
   return (
     <div>
-      <Head> Users</Head>
+      <Head>Users</Head>
       {loading ? (
         <p> Loading Users....</p>
       ) : error ? (
         <p>Error loading users : {error}</p>
       ) : (
-        <Card>
+        <Usercard>
           {data
             .filter((user) => {
               return searchUsers.toLowerCase() === ""
@@ -114,9 +107,11 @@ function DisplayUsers() {
                 : user.name.toLowerCase().includes(searchUsers);
             })
             .map((user) => (
-              <P key={user.id}> {user.name}</P>
+              <Userlist>
+                <List key={user.id}> {user.name}</List>
+              </Userlist>
             ))}
-        </Card>
+        </Usercard>
       )}
     </div>
   );
