@@ -1,22 +1,23 @@
-import { Nav, Ul, Li } from "./styles";
+import { Nav, Ul, Li, StyledLink } from "./styles";
 import { NavLink, Routes, Route } from "react-router-dom";
 import Toggletheme from "./togglebutton";
 import { ThemeContext } from "./themecontext";
 import { useContext } from "react";
 function Navbar() {
   const { theme, toggleTheme, themeStyles } = useContext(ThemeContext);
+
   return (
     <Nav>
       <Ul>
-        <NavLink to="/">
+        <StyledLink to="/">
           <Li>Home</Li>
-        </NavLink>
-        <NavLink to="/about">
+        </StyledLink>
+        <StyledLink to="/about">
           <Li>About us</Li>
-        </NavLink>
-        <NavLink to="/users">
+        </StyledLink>
+        <StyledLink to="/users">
           <Li>Users</Li>
-        </NavLink>
+        </StyledLink>
       </Ul>
       <Toggletheme />
     </Nav>

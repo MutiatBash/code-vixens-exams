@@ -5,7 +5,7 @@ import {
   Input,
   Form,
   Card,
-  List
+  List,
   Userlist,
   Usercard,
   P,
@@ -19,7 +19,8 @@ export function UsersPage() {
   const [searchUsers, setSearchUsers] = useState("");
 
   const { data, loading, error } = useAxios(
-    "https://jsonplaceholder.typicode.com/users"
+    "https://jsonplaceholder.typicode.com/users",
+    "get"
   );
 
   function handleData(event) {

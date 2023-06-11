@@ -1,12 +1,14 @@
-import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/navbar";
+import { Container } from "../components/styles";
 
 function Home() {
   return (
-    <div className="App">
-      <Navbar />
-      <h1> Welcome to the Home Page</h1>
-    </div>
+    <Container>
+      <div className="App">
+        <Navbar />
+        <h1> Welcome to the Home Page</h1>
+      </div>
+    </Container>
   );
 }
 

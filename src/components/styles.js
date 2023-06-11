@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Container = styled.body`
   //   position: relative;
@@ -39,15 +40,16 @@ export const Input = styled.input`
   padding: 1rem 7rem 1rem 1rem;
 `;
 export const Button = styled.button`
-  background-color: #1599ae;
+  background-color: rgb(243, 243, 243);
   border: none;
+  box-shadow: -1px 4px 14px rgba(250, 250, 250, 0.9);
   display: flex;
   margin: 1rem auto;
   font-weight: 600;
   cursor: pointer;
   border-radius: 50px;
-  padding: 1rem 4rem;
-  color: white;
+  padding: 1rem;
+  //   color: white;
 `;
 export const Head = styled.h1`
   font-size: 1.8rem;
@@ -72,15 +74,19 @@ export const Card = styled.div`
 `;
 export const Userlist = styled.div`
   //   max-width: 500px;
-  border: 1px solid black;
+  border: none;
   border-radius: 6px;
-  //   margin: 2rem auto;
+  margin: 1rem;
   padding: 0.5rem 1.5rem;
-  //   background-color: rgba(5, 14, 30, 0.75);
+  background-color: rgb(249, 174, 182);
+`;
+export const List = styled.p`
+  font-size: 1.2rem;
+  font-weight: 500;
 `;
 export const Usercard = styled.div`
   max-width: 500px;
-  border: none;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -108,13 +114,23 @@ export const Li = styled.li`
   list-style: none;
   text-decoration: none;
   cursor: pointer;
-  padding-right: 5rem;
-  color: rgb(66, 65, 68);
+  padding-right: 7rem;
   text-align: center;
 `;
+export const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: rgb(124, 34, 64);
+  &.active {
+    ${css`
+      color: rgb(147, 29, 76);
+      font-weight: 700;
+    `}
+  }
+`;
 export const Nav = styled.nav`
-  background-color: rgb(249, 222, 225);
-  padding: 0.8rem 2rem;
+  //   background-color: rgb(249, 222, 225);
+  background-color: rgb(246, 178, 182);
+  padding: 0.4rem 5rem;
   display: flex;
   justify-content: space-between;
 `;

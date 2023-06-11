@@ -6,7 +6,7 @@ function Toggletheme() {
   return (
     <div className="App">
       <Button onClick={toggleTheme}>
-        {theme === "light" ? "Dark Mode" : "Light Mode"}
+        {theme === "light" ? "🌚 " : " 🌞 "}
       </Button>
     </div>
   );
